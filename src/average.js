@@ -11,6 +11,22 @@
     - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+const average = (arrayWithNumbers) => {
+  let allNumbersSum = 0;
+  for (let i = 0; i < arrayWithNumbers.length; i += 1) {
+    if (Number.isNaN(arrayWithNumbers[i]) === false) {
+      allNumbersSum += arrayWithNumbers[i];
+    } else if (Number.isNaN(arrayWithNumbers[i]) === true) {
+      return undefined;
+    }
+  }
+  return Math.round(allNumbersSum / 2);
+};
+
+const randomicNumbers = [1.25, 1.75];
+
+console.log(average(randomicNumbers));
+console.log(average([10, 20]));
+console.log(average(['amem', true]));
 
 module.exports = average;
