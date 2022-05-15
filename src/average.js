@@ -22,14 +22,14 @@ const average = (arrayWithNumbers) => {
     }
     allNumbersSum += arrayWithNumbers[i];
   }
-  return Math.round(allNumbersSum / 2);
+  return Math.round(allNumbersSum / arrayWithNumbers.length);
 };
 
 const empty = [];
 const notIntegerNumbers = [1.25, 1.75];
 
 console.log(average(notIntegerNumbers));
-console.log(average([2, 4]));
+console.log(average([2, 4, 6, 8, 10]));
 console.log(average(['alô']));
 console.log(average(empty));
 
