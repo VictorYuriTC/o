@@ -21,7 +21,6 @@ const average = (arrayWithNumbers) => {
       console.log('hey');
     } else if (Number.isNaN(arrayWithNumbers[i]) === false) {
       allNumbersSum += arrayWithNumbers[i];
-      Math.round(allNumbersSum / arrayWithNumbers.length);
     }
   }
   return Math.round(allNumbersSum / arrayWithNumbers.length);
