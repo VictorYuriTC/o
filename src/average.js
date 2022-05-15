@@ -13,20 +13,24 @@
 
 const average = (arrayWithNumbers) => {
   let allNumbersSum = 0;
+  if (arrayWithNumbers === []) {
+    return undefined;
+  }
   for (let i = 0; i < arrayWithNumbers.length; i += 1) {
-    if (Number.isNaN(arrayWithNumbers[i]) === false) {
+    if (Number.isNaN(arrayWithNumbers[i]) === true) {
+      console.log('hey');
+    } else if (Number.isNaN(arrayWithNumbers[i]) === false) {
       allNumbersSum += arrayWithNumbers[i];
-    } else if (Number.isNaN(arrayWithNumbers[i]) === true) {
-      return undefined;
+      Math.round(allNumbersSum / arrayWithNumbers.length);
     }
   }
-  return Math.round(allNumbersSum / 2);
+  return Math.round(allNumbersSum / arrayWithNumbers.length);
 };
 
-const randomicNumbers = [1.25, 1.75];
+const vazio = [];
 
-console.log(average(randomicNumbers));
-console.log(average([10, 20]));
-console.log(average(['amem', true]));
+console.log(average(vazio));
+console.log(average([2, 4, 6]));
+console.log(average([1.25, 1.75]));
 
 module.exports = average;
