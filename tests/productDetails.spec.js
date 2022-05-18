@@ -31,13 +31,29 @@ const productDetails = require('../src/productDetails');
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
-    // ESCREVA SEUS TESTES ABAIXO:
-    const productDetailsReturn = productDetails('Luva látex', 'Bisturi');
-    expect(typeof productDetails).toBe('function'); // Teste se productDetails é uma função.
-    expect(typeof productDetails()).toBe('array'); // Teste se o retorno da função é um array.
-    expect(productDetailsReturn).toHaveLength(2); // Teste se o array retornado pela função contém dois itens dentro.
+    expect(typeof productDetails).toBe('function');
+    // Teste se productDetails é uma função.
+  });
+  it('Check if the function returns an array', () => {
+    expect(Array.isArray(productDetails('Luva de látex', 'Bisturi'))).toBe(true);
+    // Teste se o retorno da função é um array.
+  });
+  it('Check if the returned array has two items', () => {
+    expect(productDetails('Luva de látex', 'Bisturi')).toHaveLength(2);
+    // Teste se o array retornado pela função contém dois itens dentro.
+  });
+  it('Check if the returned items are objects', () => {
+    expect(typeof productDetails('Luva de látex', 'Bisturi')).toBe('object');
     // Teste se os dois itens dentro do array retornado pela função são objetos.
+  });
+  it('Check if the returned objects have different entries', () => {
+    expect(Object.entries(productDetails('Luva de látex', 'Bisturi')[0])).not.toEqual(Object.entries(productDetails('Luva de látex','Bisturi')[1]));
     // Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.
+  });
+  it('Check if the objects are different when two different parameters are given', () => {
+    expect(productDetails('Luva de látex', 'Bisturi')[0].details.productId).toMatch('123');
+    // Teste se os dois productIds terminam com 123.
+    expect(productDetails('Luva de látex', 'Bisturi')[1].details.productId).toMatch('123');
     // Teste se os dois productIds terminam com 123.
   });
 });
